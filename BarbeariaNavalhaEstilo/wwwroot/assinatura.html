@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assinatura Mensal - Barbearia Navalha & Estilo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    .assinatura-section {
+      padding-top: 120px;
+    }
+
+    .form-card {
+      background: var(--bg-light);
+      border: 1px solid rgba(188, 150, 84, 0.3);
+      padding: 30px;
+      border-radius: 4px;
+      max-width: 600px;
+      margin: 0 auto 50px auto;
+    }
+
+    .terms-box {
+      height: 150px;
+      overflow-y: scroll;
+      background: var(--bg-dark);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .plan-card {
+      background: var(--bg-dark);
+      border: 1px solid rgba(188, 150, 84, 0.2);
+      padding: 30px;
+      text-align: center;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .plan-card:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+
+    .plan-card.featured {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 20px rgba(188, 150, 84, 0.2);
+    }
+
+    .plan-price {
+      font-size: 2rem;
+      color: var(--primary-color);
+      font-weight: 700;
+      margin: 15px 0;
+    }
+
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 50px;
+    }
+
+    .gateway-placeholder {
+      background: rgba(188, 150, 84, 0.05);
+      border: 1px dashed var(--primary-color);
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <a href="index.html">NAVALHA<span>&</span>ESTILO</a>
+      </div>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html#inicio">Início</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="assinatura.html" style="color: var(--primary-color);">Assinatura Mensal</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container assinatura-section">
+    <div class="section-header">
+      <h2>Clube de Assinatura Mensal</h2>
+      <div class="divider"></div>
+      <p style="margin-top: 15px; color: var(--text-muted);">Estilo impecável durante todo o mês com economia e praticidade.</p>
+    </div>
+
+    <!-- Formulário de Cadastro Adaptável -->
+    <div class="form-card" id="cadastro-container">
+      <h3 style="font-family: 'Cinzel', serif; color: var(--white); margin-bottom: 20px; text-align: center;">Cadastro do Assinante</h3>
+
+      <form id="form-cliente" onsubmit="salvarCadastro(event)">
+        <div class="form-group">
+          <input type="text" id="cpf" placeholder="CPF (Somente números)" required onblur="verificarClienteExistente()">
+        </div>
+        <div class="form-group">
+          <input type="text" id="nome" placeholder="Nome Completo" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" id="whatsapp" placeholder="WhatsApp / Telefone (com DDD)" required onblur="verificarClienteExistente()">
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Seu melhor E-mail" required>
+        </div>
+
+        <!-- Campo de Termos e Diretrizes -->
+        <div id="secao-termos">
+          <label style="color: var(--white); font-size: 0.9rem; display: block; margin-bottom: 5px;">Termos de Uso e Diretrizes do Estabelecimento:</label>
+          <div class="terms-box" id="terms-box" onscroll="checarLeituraTermos()">
+            <p><strong>DIRETRIZES E TERMOS DE COMPARTILHAMENTO DE DADOS - BARBEARIA NAVALHA & ESTILO</strong></p>
+            <br>
+            <p>1. Ao se cadastrar, o cliente concorda com o processamento de dados pessoais para fins de agendamento e cobrança recorrente.</p>
+            <p>2. A assinatura mensal renova automaticamente a cada 30 dias a partir da data de adesão.</p>
+            <p>3. Os agendamentos dos assinantes estão sujeitos à disponibilidade da agenda e devem ser realizados no site.</p>
+            <p>4. [Espaço reservado para inclusão das diretrizes finais da barbearia].</p>
+            <br>
+            <p><em>Role até o final para habilitar a caixa de confirmação.</em></p>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+            <input type="checkbox" id="aceite-termos" disabled style="width: auto;" required>
+            <label for="aceite-termos" style="font-size: 0.85rem; color: var(--text-color);">Li e concordo com os termos de uso e diretrizes da barbearia.</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-block">Confirmar Cadastro e Escolher Plano</button>
+      </form>
+    </div>
+
+    <!-- Feed de Planos (Visível após cadastro) -->
+    <div id="feed-planos" style="display: none;">
+      <div class="section-header">
+        <h3>Escolha seu Plano de Assinatura</h3>
+      </div>
+
+      <div class="plans-grid">
+        <div class="plan-card">
+          <h3 style="font-family: 'Cinzel', serif; color: var(--white);">Plano VIP Corte</h3>
+          <div class="plan-price">R$ 99<span style="font-size: 1rem;">/mês</span></div>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">Cortes ilimitados durante todo o mês.</p>
+          <button class="btn btn-block" onclick="selecionarPlano('VIP Corte', 99)">Assinar Agora</button>
+        </div>
+
+        <div class="plan-card featured">
+          <h3 style="font-family: 'Cinzel', serif; color: var(--primary-color);">Plano Master (Corte + Barba)</h3>
+          <div class="plan-price">R$ 160<span style="font-size: 1rem;">/mês</span></div>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">Cortes e Barboterapia ilimitados + 1 Bebida cortesia por visita.</p>
+          <button class="btn btn-block" onclick="selecionarPlano('Master', 160)">Assinar Agora</button>
+        </div>
+      </div>
+
+      <!-- Modal/Área Reservada para Checkout e Maquininha/Pix -->
+      <div id="checkout-container" style="display: none; margin-top: 40px;" class="form-card">
+        <h4 style="color: var(--white); text-align: center; margin-bottom: 15px;" id="plano-selecionado-titulo">Dados do Pagamento</h4>
+
+        <div class="gateway-placeholder">
+          <p><strong>[RESERVADO PARA ADESÃO FUTURA DE GATEWAY]</strong></p>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">Aqui será integrado o Cartão de Crédito Recorrente (Cobrança mensal no mesmo dia) e a integração PIX vinculada à maquininha do estabelecimento.</p>
+        </div>
+      </div>
+
+      <!-- Navegação Rápida -->
+      <div class="nav-buttons">
+        <a href="servicos.html?categoria=cortes" class="btn">Cortes</a>
+        <a href="servicos.html?categoria=barba" class="btn">Barba Alinhada</a>
+        <a href="servicos.html?categoria=tinturas" class="btn">Tinturas e Afins</a>
+        <a href="servicos.html?categoria=produtos" class="btn">Produtos Exclusivos</a>
+        <a href="servicos.html?categoria=detalhes" class="btn">Detalhes Técnicos</a>
+      </div>
+    </div>
+    <script src="js/assinatura.js"></script>
+</body>
+
+</html>

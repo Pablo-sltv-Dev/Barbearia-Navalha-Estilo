@@ -1,0 +1,10 @@
+## Pastas de compilação do C# / .NET
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+
+## Arquivos de ambiente e logs
+appsettings.Development.json
+*.log

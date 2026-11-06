@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -770,27 +770,27 @@ textarea:focus {
 }
 
 .foto-cortes {
-  background-image: url("../img/corte.jpg");
+  background-image: url("corte.jpg");
 }
 
 .foto-barba {
-  background-image: url("../img/barba.jpg");
+  background-image: url("barba.jpg");
 }
 
 .foto-assinatura {
-  background-image: url("../img/mensal.jpg");
+  background-image: url("mensal.jpg");
 }
 
 .foto-produtos {
-  background-image: url("../img/produtos.jpg");
+  background-image: url("produtos.jpg");
 }
 
 .foto-detalhes {
-  background-image: url("../img/detalhes.jpg");
+  background-image: url("detalhes.jpg");
 }
 
 .foto-tinturas {
-  background-image: url("../img/tintura.jpg");
+  background-image: url("tintura.jpg");
 }
 
 .gallery-overlay {

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços - Barbearia Navalha & Estilo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    .services-page {
+      padding-top: 120px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 12px 25px;
+      background: var(--bg-light);
+      border: 1px solid rgba(188, 150, 84, 0.2);
+      color: var(--text-color);
+      cursor: pointer;
+      font-family: 'Cinzel', serif;
+      transition: var(--transition);
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--primary-color);
+      color: var(--bg-dark);
+      font-weight: bold;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .booking-box {
+      background: var(--bg-light);
+      border: 1px solid var(--primary-color);
+      padding: 25px;
+      margin-top: 30px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <a href="index.html">NAVALHA<span>&</span>ESTILO</a>
+      </div>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html#inicio">Início</a></li>
+          <li><a href="servicos.html" style="color: var(--primary-color);">Serviços</a></li>
+          <li><a href="assinatura.html">Assinatura Mensal</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container services-page">
+    <div class="section-header">
+      <h2>Nossos Serviços & Catálogo</h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Abas de Navegação -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="abrirAba('cortes')">Cortes</button>
+      <button class="tab-btn" onclick="abrirAba('barba')">Barba Alinhada</button>
+      <button class="tab-btn" onclick="abrirAba('tinturas')">Tinturas e Afins</button>
+      <button class="tab-btn" onclick="abrirAba('produtos')">Produtos Exclusivos</button>
+      <button class="tab-btn" onclick="abrirAba('detalhes')">Detalhes Técnicos</button>
+    </div>
+
+    <!-- Conteúdo: Cortes -->
+    <div id="cortes" class="tab-content active">
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Corte Navalhado / Degradê</h3>
+          <p class="price">R$ 60,00</p>
+          <p>Sinal de 50% para reserva: <strong>R$ 30,00</strong></p>
+          <button class="btn btn-block" style="margin-top: 15px;" onclick="iniciarAgendamento('Corte Degradê', 60)">Agendar Corte</button>
+        </div>
+        <div class="service-card">
+          <h3>Disfarce Clássico</h3>
+          <p class="price">R$ 50,00</p>
+          <p>Sinal de 50% para reserva: <strong>R$ 25,00</strong></p>
+          <button class="btn btn-block" style="margin-top: 15px;" onclick="iniciarAgendamento('Disfarce Clássico', 50)">Agendar Corte</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo: Barba -->
+    <div id="barba" class="tab-content">
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Barba Terapia Completa</h3>
+          <p class="price">R$ 50,00</p>
+          <p>Sinal de 50% para reserva: <strong>R$ 25,00</strong></p>
+          <button class="btn btn-block" style="margin-top: 15px;" onclick="iniciarAgendamento('Barba Terapia', 50)">Agendar Barba</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo: Tinturas e Afins -->
+    <div id="tinturas" class="tab-content">
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Pigmentação de Barba/Cabelo</h3>
+          <p class="price">R$ 40,00</p>
+          <p>Sinal de 50% para reserva: <strong>R$ 20,00</strong></p>
+          <button class="btn btn-block" style="margin-top: 15px;" onclick="iniciarAgendamento('Pigmentação', 40)">Agendar Tintura</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo: Produtos Exclusivos -->
+    <div id="produtos" class="tab-content">
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Pomada Modeladora Premium</h3>
+          <p class="price">R$ 45,00</p>
+          <p>Venda presencial ou retirada no local.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo: Detalhes Técnicos -->
+    <div id="detalhes" class="tab-content">
+      <div class="booking-box">
+        <h3 style="color: var(--primary-color); font-family: 'Cinzel', serif;">Política de Agendamento e Cancelamentos</h3>
+        <br>
+        <p>• <strong>Pagamento de Reserva:</strong> Para agendar, o cliente paga 50% ou 100% do valor do serviço.</p>
+        <p>• <strong>Cancelamento Gratuito:</strong> Cancelamentos feitos até <strong>2 horas antes</strong> do horário reservado recebem estorno integral do valor pago e confirmação via WhatsApp e E-mail.</p>
+        <p>• <strong>Cancelamento Fora do Prazo / No-Show:</strong> Cancelamentos com menos de 2 horas de antecedência resultam na perda da entrada de 50% (re do estabelecimento).</p>
+      </div>
+    </div>
+
+    <!-- Modal de Agendamento e Pagamento Parcial -->
+    <div id="box-pagamento-corte" class="booking-box" style="display: none; max-width: 600px; margin: 30px auto 0 auto;">
+      <h3 id="titulo-servico-selecionado" style="color: var(--white); font-family: 'Cinzel', serif;"></h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Escolha a modalidade de pagamento do seu agendamento:</p>
+
+      <form onsubmit="confirmarAgendamento(event)">
+        <div class="form-group">
+          <label style="color: var(--white);"><input type="radio" name="pagamento" value="50" checked> Pagar Sinal de 50% Agora (Restante na Barbearia)</label><br>
+          <label style="color: var(--white);"><input type="radio" name="pagamento" value="100"> Pagar 100% do Valor Integral</label>
+        </div>
+
+        <div class="form-group">
+          <input type="text" placeholder="Seu Nome Completo" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" placeholder="Seu WhatsApp (para confirmação)" required>
+        </div>
+
+        <button type="submit" class="btn btn-block">Ir para Pagamento (Maquininha/Pix/Cartão)</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="js/servicos.js"></script>
+</body>
+
+</html>
